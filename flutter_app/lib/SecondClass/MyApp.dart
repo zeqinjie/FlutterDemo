@@ -106,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 //导航
                 Navigator.push(context, MaterialPageRoute(builder: (context){
                   return NewRoute();
-                }));
+                },maintainState: false,fullscreenDialog: true));
               },
             ),
           ],

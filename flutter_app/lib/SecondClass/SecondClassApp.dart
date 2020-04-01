@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/SecondClass/NewRoute.dart';
-class MyApp extends StatelessWidget {
+import 'package:flutterapp/SecondClass/TipRoute.dart';
+
+//课程文章路由管理  https://book.flutterchina.club/chapter2/
+class SecondClassApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      initialRoute:"/", //名为"/"的路由作为应用的home(首页)
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -17,8 +21,12 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      ),routes: {
+                "/":(context) => MyHomePage(title: 'Flutter Demo Home Page'), //注册首页路由
+                "new_route":(context) => NewRoute(),
+                "tip_route":(context) => TipRoute(),
+                },
+//      home: MyHomePage(title: 'Flutter Demo Home Page'),// 注意设置MyHomePage 路由注册首页方式需注释掉，否则会重复注册报错
     );
   }
 }
@@ -90,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Hello Word:ssss',
+              'Hello Word sss',
             ),
             Text(
               '$_counter',
@@ -102,12 +110,21 @@ class _MyHomePageState extends State<MyHomePage> {
             FlatButton(
               child: Text("open new route"),
               color: Colors.yellow,
-              onPressed: (){
-                //导航
-                Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return NewRoute();
-                },maintainState: false,fullscreenDialog: true));
-              },
+                  onPressed: ()  async{
+                    var result = await Navigator.pushNamed(context, "new_route");
+//                    var result = await Navigator.push( //获取返回值
+//                      context,
+//                      MaterialPageRoute(
+//                        builder: (context) {
+//                          return TipRoute(
+//                            // 路由参数
+//                            text: "我是提示xxxx",
+//                          );
+//                        },
+//                      ),
+//                    );
+                    print("路由返回值: $result");
+                  },
             ),
           ],
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+//路由传值
 class TipRoute extends StatelessWidget{
   // 使用final修饰的变量必须进行初始化，一旦被赋值之后，不能够再次被赋值,否则编译会报错。
   final String text;
@@ -17,9 +17,18 @@ class TipRoute extends StatelessWidget{
     // TODO: implement build
     return Scaffold(appBar: AppBar(title: Text("提示")),
                       body: Padding(padding: EdgeInsets.all(18),
-                                      child: Center(),));
-
+                                      child:
+                                      Center(child:
+                                                  Column(children: <Widget>[Text(text),
+                                                    RaisedButton(color: Colors.yellow,
+                                                      child: Text("返回"),
+                                                      onPressed: (){
+                                                        Navigator.pop(context, "我是返回值");//返回值
+                                                      })
+                                                  ])
+                                            )
+                                    )
+                  );
   }
-
-
 }
+

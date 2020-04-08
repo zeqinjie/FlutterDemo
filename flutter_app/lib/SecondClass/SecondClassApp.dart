@@ -124,15 +124,12 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("open new route"),
               color: Colors.yellow,
                   onPressed: ()  async{
-                    var result = await Navigator.pushNamed(context, "tip_route",arguments: "my name is zhengzeqin");
-//                    var result = await Navigator.push( //获取返回值
+                    var result = await Navigator.pushNamed(context, "new_route",arguments: "my name is zhengzeqin");
+//                    var result2 = await Navigator.push( //获取返回值
 //                      context,
 //                      MaterialPageRoute(
 //                        builder: (context) {
-//                          return TipRoute(
-//                            // 路由参数
-//                            text: "我是提示xxxx",
-//                          );
+//                          return TipRoute(text: "我是提示xxxx",);// 路由参数
 //                        },
 //                      ),
 //                    );

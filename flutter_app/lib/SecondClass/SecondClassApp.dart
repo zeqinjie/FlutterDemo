@@ -24,8 +24,21 @@ class SecondClassApp extends StatelessWidget {
       ),routes: {
                 "/":(context) => MyHomePage(title: 'Flutter Demo Home Page'), //注册首页路由
                 "new_route":(context) => NewRoute(),
-                "tip_route":(context) => TipRoute(),
+//                "tip_route":(context) => TipRoute(text: "I love china"),
+                 //补充动态参数为文本text
+                "tip_route":(context) {
+                    return TipRoute(text: ModalRoute.of(context).settings.arguments);
+                    },
                 },
+      onGenerateRoute: (RouteSettings settings){
+        WidgetBuilder builder;
+        if (settings.name == 'new_route2') {
+          builder = (BuildContext context) => new NewRoute();
+        } else if (settings.name == 'tip_route2') {
+          builder = (BuildContext context) => new TipRoute(text: ModalRoute.of(context).settings.arguments);
+        }
+        return new MaterialPageRoute(builder: builder, settings: settings);
+      },
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),// 注意设置MyHomePage 路由注册首页方式需注释掉，否则会重复注册报错
     );
   }
@@ -111,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("open new route"),
               color: Colors.yellow,
                   onPressed: ()  async{
-                    var result = await Navigator.pushNamed(context, "new_route");
+                    var result = await Navigator.pushNamed(context, "tip_route",arguments: "my name is zhengzeqin");
 //                    var result = await Navigator.push( //获取返回值
 //                      context,
 //                      MaterialPageRoute(

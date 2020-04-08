@@ -23,7 +23,8 @@ class TipRoute extends StatelessWidget{
                                                     RaisedButton(color: Colors.yellow,
                                                       child: Text("返回"),
                                                       onPressed: (){
-                                                        Navigator.pop(context, "我是返回值");//返回值
+                                                        //返回值
+                                                        Navigator.pop(context, "我是返回值zzzzz");
                                                       })
                                                   ])
                                             )

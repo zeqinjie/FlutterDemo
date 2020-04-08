@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutterapp/SecondClass/NewRoute.dart';
 import 'package:flutterapp/SecondClass/TipRoute.dart';
@@ -26,14 +28,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,32 +38,26 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Hello Word sss',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-            Text(
-                'china'
-            ),
             FlatButton(
-              child: Text("open new route"),
+              child: Text("click this..."),
               color: Colors.yellow,
               onPressed: ()  async{
-                var result = await Navigator.pushNamed(context, "new_route",arguments: "my name is zhengzeqin");
-                print("路由返回值: $result");
+                showAlertView();
               },
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  //弹窗widget
+  Void showAlertView(){
+    var alert = AlertDialog(title: Text("hello word..."));
+//    showDialog(context: context,builder: (context)=> alert);
+    showDialog(context: context,builder: (context) {
+      return alert;
+    });
+    print("点击...");
   }
 }

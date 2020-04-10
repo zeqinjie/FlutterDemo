@@ -6,6 +6,7 @@ import 'package:flutterapp/SecondClass/TipRoute.dart';
 
 import 'CounterWidget.dart';
 import 'MyCupertinoWidget.dart';
+import 'StateManagerWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter3/
 class ThirdClassApp extends StatelessWidget {
@@ -50,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //            ),
 //          ],
 //        ),
-        child:MyCupertinoWidget(),
+        child:ParentTapboxBWidget(),
       ),
     );
   }

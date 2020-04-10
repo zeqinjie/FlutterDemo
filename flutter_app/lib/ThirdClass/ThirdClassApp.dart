@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutterapp/SecondClass/NewRoute.dart';
 import 'package:flutterapp/SecondClass/TipRoute.dart';
 
+import 'CounterWidget.dart';
+import 'MyCupertinoWidget.dart';
+
 //课程文章  https://book.flutterchina.club/chapter3/
 class ThirdClassApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -35,18 +38,19 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            FlatButton(
-              child: Text("click this..."),
-              color: Colors.yellow,
-              onPressed: ()  async{
-                showAlertView();
-              },
-            ),
-          ],
-        ),
+//        child: Column(
+//          mainAxisAlignment: MainAxisAlignment.center,
+//          children: <Widget>[
+//            FlatButton(
+//              child: Text("click this..."),
+//              color: Colors.yellow,
+//              onPressed: ()  async{
+//                showAlertView();
+//              },
+//            ),
+//          ],
+//        ),
+        child:MyCupertinoWidget(),
       ),
     );
   }

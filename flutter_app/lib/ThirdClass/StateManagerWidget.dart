@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+//自己管理自己
+//------------------------- TapboxA ----------------------------------
 class TapboxA extends StatefulWidget{
 
   TapboxA({Key key}):super(key:key);
@@ -12,7 +14,7 @@ class TapboxA extends StatefulWidget{
   }
 }
 
-//自己管理自己的状态 _active
+//自己管理自己的状态 active
 class TapboxAState extends State<TapboxA> {
 
   bool active = false;
@@ -74,12 +76,13 @@ class ParentTapboxBState extends State <ParentTapboxBWidget>{
 //父Widgett
 class TapboxBWidget extends StatelessWidget {
 
+  //通过构造函数初始化需要父widget控制的参数
   TapboxBWidget({Key key, this.active: false, @required this.onChanged})
       : super(key: key);
 
-  //需初始化
+  //状态参数
   final bool active;
-  //暴露一个方法
+  //事件函数
   final ValueChanged<bool> onChanged;
 
   void handleTap() {

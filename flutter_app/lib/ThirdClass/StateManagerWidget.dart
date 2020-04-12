@@ -8,16 +8,16 @@ class TapboxA extends StatefulWidget{
 //  _TapboxAState createState() => new _TapboxAState();
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _TapboxAState();
+    return TapboxAState();
   }
 }
 
 //自己管理自己的状态 _active
-class _TapboxAState extends State<TapboxA> {
+class TapboxAState extends State<TapboxA> {
 
   bool active = false;
 
-  void _handleTap() {
+  void handleTap() {
     setState(() {
       active = !active;
     });
@@ -27,7 +27,7 @@ class _TapboxAState extends State<TapboxA> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return GestureDetector(
-      onTap: _handleTap,
+      onTap: handleTap,
       child: Container(
         child: Center(
           child: Text(active ? 'Active' : 'Inactive',style: TextStyle(fontSize: 30,color: active ? Colors.green : Colors.orange),),
@@ -54,7 +54,7 @@ class ParentTapboxBState extends State <ParentTapboxBWidget>{
 
   bool active = false;
 
-  void _handleTapboxChanged(bool newValue) {
+  void handleTapboxChanged(bool newValue) {
     setState(() { //需要调用这个方法才能更新widget
       active = newValue;
     });
@@ -65,7 +65,7 @@ class ParentTapboxBState extends State <ParentTapboxBWidget>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-        child: TapboxBWidget(onChanged: _handleTapboxChanged,active: active,)
+        child: TapboxBWidget(onChanged: handleTapboxChanged,active: active,)
       ,color: Colors.yellow,);
   }
   
@@ -82,7 +82,7 @@ class TapboxBWidget extends StatelessWidget {
   //暴露一个方法
   final ValueChanged<bool> onChanged;
 
-  void _handleTap() {
+  void handleTap() {
     onChanged(!active);
   }
 
@@ -90,7 +90,7 @@ class TapboxBWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return GestureDetector(
-      onTap: _handleTap,
+      onTap: handleTap,
       child: Container(
         child: Center(
           child: Text(active ? 'Active' : 'Inactive',style: TextStyle(fontSize: 30,color: active ? Colors.green : Colors.orange),),
@@ -106,6 +106,9 @@ class TapboxBWidget extends StatelessWidget {
 
 
 // 混合状态管理
+// ParentTapboxCWidget 重新返回 ParentTapboxCState 实例，自身有个active状态
+// 子Widget TapboxCWidget暴露active及事件响应函数handleTapboxChanged 属性控制子widget的状态active
+// 同时子Widget 的 TapboxCState 实例对象，自己管理自己的highlight
 //------------------------- TapboxC ----------------------------------
 class  ParentTapboxCWidget extends StatefulWidget{
   @override
@@ -115,7 +118,7 @@ class  ParentTapboxCWidget extends StatefulWidget{
 class ParentTapboxCState extends State<ParentTapboxCWidget> {
   bool active = false;
 
-  void _handleTapboxChanged(bool newValue) {
+  void handleTapboxChanged(bool newValue) {
     setState(() {
       active = newValue;
     });
@@ -125,7 +128,7 @@ class ParentTapboxCState extends State<ParentTapboxCWidget> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      child: TapboxCWidget(onChanged: _handleTapboxChanged,active: active,)
+      child: TapboxCWidget(onChanged: handleTapboxChanged,active: active,)
       ,color: Colors.yellow,);
   }
 }

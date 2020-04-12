@@ -15,11 +15,11 @@ class TapboxA extends StatefulWidget{
 //自己管理自己的状态 _active
 class _TapboxAState extends State<TapboxA> {
 
-  bool _active = false;
+  bool active = false;
 
   void _handleTap() {
     setState(() {
-      _active = !_active;
+      active = !active;
     });
   }
 
@@ -30,11 +30,11 @@ class _TapboxAState extends State<TapboxA> {
       onTap: _handleTap,
       child: Container(
         child: Center(
-          child: Text(_active ? 'Active' : 'Inactive',style: TextStyle(fontSize: 30,color: _active ? Colors.green : Colors.orange),),
+          child: Text(active ? 'Active' : 'Inactive',style: TextStyle(fontSize: 30,color: active ? Colors.green : Colors.orange),),
         ),
         width: 200,
         height: 200,
-        decoration: BoxDecoration(color:_active ? Colors.red : Colors.blue ),
+        decoration: BoxDecoration(color:active ? Colors.red : Colors.blue ),
       ),
     );
   }
@@ -52,11 +52,11 @@ class ParentTapboxBWidget extends StatefulWidget {
 
 class ParentTapboxBState extends State <ParentTapboxBWidget>{
 
-  bool _active = false;
+  bool active = false;
 
   void _handleTapboxChanged(bool newValue) {
     setState(() { //需要调用这个方法才能更新widget
-      _active = newValue;
+      active = newValue;
     });
   }
 
@@ -65,7 +65,7 @@ class ParentTapboxBState extends State <ParentTapboxBWidget>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-        child: TapboxBWidget(onChanged: _handleTapboxChanged,active: _active,)
+        child: TapboxBWidget(onChanged: _handleTapboxChanged,active: active,)
       ,color: Colors.yellow,);
   }
   
@@ -109,31 +109,94 @@ class TapboxBWidget extends StatelessWidget {
 //------------------------- TapboxC ----------------------------------
 class  ParentTapboxCWidget extends StatefulWidget{
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    throw UnimplementedError();
-  }
+  ParentTapboxCState createState() =>  ParentTapboxCState();
 }
 
 class ParentTapboxCState extends State<ParentTapboxCWidget> {
+  bool active = false;
+
+  void _handleTapboxChanged(bool newValue) {
+    setState(() {
+      active = newValue;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    throw UnimplementedError();
+    return Container(
+      child: TapboxCWidget(onChanged: _handleTapboxChanged,active: active,)
+      ,color: Colors.yellow,);
   }
 }
 
-class TapboxC extends StatelessWidget{
+class TapboxCWidget extends StatefulWidget{
 
-  TapboxC({Key key,this.active,@required this.onChanged}) : super(key:key);
+  TapboxCWidget({Key key,this.active,@required this.onChanged}) : super(key:key);
   final bool active;
   final ValueChanged<bool> onChanged;
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return TapboxCState();
+  }
+}
+
+class TapboxCState extends State <TapboxCWidget>{
+  bool highlight = false;
+
+  //处理按下事件
+  void handleTapDown(TapDownDetails details) {
+    setState(() {
+      highlight = true;
+    });
+  }
+
+  //处理抬起事件
+  void handleTapUp(TapUpDetails details) {
+    setState(() {
+      highlight = false;
+    });
+  }
+
+  //点击取消
+  void handleTapCancel() {
+    setState(() {
+      highlight = false;
+    });
+  }
+
+  void handleTap() {
+    widget.onChanged(!widget.active);
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    throw UnimplementedError();
+    return GestureDetector(
+      onTapDown: handleTapDown,
+      onTapUp: handleTapUp,
+      onTap: handleTap,
+      onTapCancel: handleTapCancel,
+      child: Container(
+        child: Center(
+          child: Text(
+          widget.active ? 'Active' : 'Inactive',
+          style: TextStyle(
+              fontSize: 34,
+              color: widget.active ? Colors.red:Colors.blue),
+          ),
+        ),
+        width: 200,
+        height: 200,
+        decoration: BoxDecoration(
+            color:widget.active ? Colors.blue : Colors.red ,
+            border: highlight ? Border.all(
+                color: Colors.green,width: 10) : null
+        ),
+      ),
+    );
   }
-
-
 
 }

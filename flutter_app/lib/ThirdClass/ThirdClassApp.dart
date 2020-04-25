@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/SecondClass/NewRoute.dart';
 import 'package:flutterapp/SecondClass/TipRoute.dart';
+import 'package:flutterapp/ThirdClass/TextWidget.dart';
 
 import 'CounterWidget.dart';
 import 'MyCupertinoWidget.dart';
@@ -51,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //            ),
 //          ],
 //        ),
-        child:ParentTapboxCWidget(),
+        child:TextWidget(),
       ),
     );
   }

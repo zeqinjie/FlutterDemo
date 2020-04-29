@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   //弹窗widget
-  Void showAlertView(){
+  void showAlertView(){
     var alert = AlertDialog(title: Text("hello word..."));
 //    showDialog(context: context,builder: (context)=> alert);
     showDialog(context: context,builder: (context) {

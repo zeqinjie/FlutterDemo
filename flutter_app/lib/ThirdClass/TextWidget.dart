@@ -17,12 +17,14 @@ class TextWidgetState extends State{
 
 
     void onTap() {
-      print("onTap....");
+      var alert = AlertDialog(title: Text("hello word..."));
+      showDialog(context: context,builder: (context)=> alert);
     }
+
     
     @override
     void initState() {
-      _tapRecognizer =  TapGestureRecognizer();
+      _tapRecognizer = TapGestureRecognizer();
       _tapRecognizer.onTap = onTap;
     }
 

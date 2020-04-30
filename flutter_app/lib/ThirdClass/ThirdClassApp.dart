@@ -3,10 +3,13 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/SecondClass/NewRoute.dart';
 import 'package:flutterapp/SecondClass/TipRoute.dart';
-import 'package:flutterapp/ThirdClass/TextWidget.dart';
+import 'package:flutterapp/ThirdClass/MyTextWidget.dart';
 
 import 'CounterWidget.dart';
+import 'MyButtonWidget.dart';
 import 'MyCupertinoWidget.dart';
+import 'MyPirctureAndIconWidget.dart';
+import 'MySwitchAndCheckBoxWidget.dart';
 import 'StateManagerWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter3/
@@ -52,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //            ),
 //          ],
 //        ),
-        child:TextWidget(),
+        child:MySwitchAndCheckBoxWidget(),
       ),
     );
   }

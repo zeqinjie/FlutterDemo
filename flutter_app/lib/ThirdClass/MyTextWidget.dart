@@ -1,17 +1,19 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-class TextWidget extends StatefulWidget{
+//https://book.flutterchina.club/chapter3/text.html
+class MyTextWidget extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return TextWidgetState();
+    return MyTextWidgetState();
   }
 }
 
-class TextWidgetState extends State{
+class MyTextWidgetState extends State{
 
   TapGestureRecognizer _tapRecognizer;
+
 
 
   void onTap() {
@@ -36,7 +38,7 @@ class TextWidgetState extends State{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return getDefaultTextStyle();
+    return getTextColumn();
   }
 
   /*Private Method*/
@@ -50,9 +52,16 @@ class TextWidgetState extends State{
 
   //文本组件数组
   List<Widget> getTextList() {
+    // 声明自定义文本样式 首先在yaml文件注册
+    const textStyle = const TextStyle(
+      fontFamily: 'BalooTamma',
+      fontWeight: FontWeight.w600,
+      fontStyle: FontStyle.italic,
+    );
+
     return[
       //textAlign：文本的对齐方式
-      Text("hello word",textAlign: TextAlign.right),
+      Text("Hello world! I'm Jack.",textAlign: TextAlign.right,style: textStyle,),
       //maxLines、overflow：指定文本显示的最大行数，默认情况下，文本是自动折行的，如果指定此参数，
       //则文本最多不会超过指定的行。如果有多余的文本，可以通过overflow来指定截断方式，默认是直接截断
       Text("Hello world! I'm Jack. "*4,maxLines: 1,overflow: TextOverflow.clip,),

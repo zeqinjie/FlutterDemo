@@ -41,6 +41,16 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+ #自定义字体
+  fonts:
+    - family: BalooTamma
+      fonts:
+        - asset: assets/fonts/BalooTamma2-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/BalooTamma2-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/BalooTamma2-SemiBold.ttf
+          weight: 600
   #注册图片地址
   assets:
     - assets/icons/taofang.png

@@ -36,6 +36,7 @@ class _CounterWidgetState extends State<CounterWidget>{
 
   @override
   //当State对象的依赖发生变化时会被调用
+  //依赖”发生变化时被Flutter Framework调用。而这个“依赖”指的就是子widget是否使用了父widget中InheritedWidget的数据
   void didChangeDependencies() {
     super.didChangeDependencies();
     print("didChangeDependencies");

@@ -10,6 +10,7 @@ import 'MyButtonWidget.dart';
 import 'MyCupertinoWidget.dart';
 import 'MyPirctureAndIconWidget.dart';
 import 'MySwitchAndCheckBoxWidget.dart';
+import 'MyTextFieldAndFormWidget.dart';
 import 'StateManagerWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter3/
@@ -55,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //            ),
 //          ],
 //        ),
-        child:MySwitchAndCheckBoxWidget(),
+        child:MyTextFieldAndFormWidget(),
       ),
     );
   }

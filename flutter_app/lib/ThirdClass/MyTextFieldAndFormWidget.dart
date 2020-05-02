@@ -30,7 +30,6 @@ class MyTextFieldAndFormWidgetState extends State {
   *
   * */
 
-  TextEditingController _unameController = TextEditingController();
   //设置焦点，
   FocusNode focusNode1 = new FocusNode();
   FocusNode focusNode2 = new FocusNode();
@@ -39,6 +38,11 @@ class MyTextFieldAndFormWidgetState extends State {
   * 我们可以通过FocusScope.of(context) 来获取Widget树中默认的FocusScopeNode
   * */
   FocusScopeNode focusScopeNode;
+
+  ///From表单, _formKey
+  TextEditingController _unameController = TextEditingController();
+  TextEditingController _pwdController =  TextEditingController();
+  GlobalKey _formKey= new GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -59,14 +63,14 @@ class MyTextFieldAndFormWidgetState extends State {
 
     //监听焦点状态改变事件,FocusNode继承自ChangeNotifier，通过FocusNode可以监听焦点的改变事件
     focusNode1.addListener((){
-      print(focusNode1.hasFocus);
+      print("通过FocusNode可以监听焦点的改变事件:${focusNode1.hasFocus}");
     });
   }
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return getTextFieldContainer() ;
+    return getFromWidget(context) ;
   }
 
   //控制焦点
@@ -166,4 +170,90 @@ class MyTextFieldAndFormWidgetState extends State {
       ),
     );
   }
+
+  /* 表单Form  Form继承自StatefulWidget对象，它对应的状态类为FormState
+  *
+  * autovalidate：是否自动校验输入内容；当为true时，每一个子FormField内容发生变化时都会自动校验合法性，并直接显示错误信息。
+    否则，需要通过调用FormState.validate()来手动校验。
+  * onWillPop：决定Form所在的路由是否可以直接返回（如点击返回按钮），该回调返回一个Future对象，如果Future的最终结果是false，
+    则当前路由不会返回；如果为true，则会返回到上一个路由。
+    此属性通常用于拦截返回按钮。
+  * onChanged：Form的任意一个子FormField内容发生变化时会触发此回调。
+  *
+  * FormField*************
+  * Form的子孙元素必须是FormField类型，FormField是一个抽象类
+  * FormState为Form的State类，可以通过Form.of()或GlobalKey获得
+  * FormState.validate()：调用此方法后，会调用Form子孙FormField的validate回调，如果有一个校验失败，则返回false，所有校验失败项都会返回用户返回的错误提示。
+  * FormState.save()：调用此方法后，会调用Form子孙FormField的save回调，用于保存表单内容
+  * FormState.reset()：调用此方法后，会将子孙FormField的内容清空。
+  *
+  * */
+  Widget getFromWidget(BuildContext context){
+    return Form(key: _formKey,
+        child: Column(
+      children: <Widget>[
+        TextFormField(
+          autofocus: true,
+          controller: _unameController,
+          decoration: InputDecoration(
+            labelText: "用户名",
+            hintText: "请输入用户名",
+            icon: Icon(Icons.person),
+          ),
+          validator: (v){
+            print("用户名不能为空...");
+            return v.trim().length > 0 ? null : "用户名不能为空";
+          },
+        ),
+        TextFormField(
+          autofocus: true,
+          obscureText: true,
+          controller: _pwdController,
+          decoration: InputDecoration(
+            labelText: "密码",
+            hintText: "您的登录密码",
+            icon: Icon(Icons.lock),
+          ),
+          validator: (v){
+            print("密码不能少于6位...");
+            return v.trim().length > 5 ? null : "密码不能少于6位";
+          },
+        ),
+        FlatButton.icon(onPressed: (){
+          //在这里不能通过此方式获取FormState，context不对
+          //print(Form.of(context));
+
+          // 通过_formKey.currentState 获取FormState后，
+          // 调用validate()方法校验用户名密码是否合法，校验
+          // 通过后再提交数据。
+          if((_formKey.currentState as FormState).validate()){
+            //验证通过提交数据
+            print("validate success");
+          }
+          /*as、is、is!类型判定操作
+          * 类型判定操作符：as、is、is!在运行时判定对象类型
+          * is 运算符，a is b，用于判断 a 对象是否是 b 类的实例，返回 bool 值
+          * is！意义与上面相反
+          * as用于检查类型,同时默认类型转换
+          */
+
+        }, icon: Icon(Icons.done), label: Text("确定"))
+      ],
+    ));
+  }
 }
+
+//class MyFormWidget extends StatefulWidget {
+//  @override
+//  MyFormWidgetState createState() => new MyFormWidgetState();
+//}
+//
+//class MyFormWidgetState extends State<MyFormWidget> {
+//  @override
+//  Widget build(BuildContext context) {
+//    // TODO: implement build
+//    throw UnimplementedError();
+//  }
+//
+//
+//}

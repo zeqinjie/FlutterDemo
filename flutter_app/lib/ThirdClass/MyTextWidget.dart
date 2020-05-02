@@ -14,8 +14,6 @@ class MyTextWidgetState extends State{
 
   TapGestureRecognizer _tapRecognizer;
 
-
-
   void onTap() {
     var alert = AlertDialog(title: Text("hello word..."));
     showDialog(context: context,builder: (context)=> alert);

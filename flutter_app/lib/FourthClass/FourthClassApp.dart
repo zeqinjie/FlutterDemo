@@ -1,6 +1,10 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'RowAndColumnWidget.dart';
+import 'MyAlignWidget.dart';
+import 'MyFlexWidget.dart';
+import 'MyRowAndColumnWidget.dart';
+import 'MyStackAndPositionedWidget.dart';
+import 'MyWrapAndFlowWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter4/
 class FourthClassApp extends StatelessWidget {
@@ -33,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
-        child:RowAndColumnWidget(),
+        child:MyAlignWidget(),
       ),
     );
   }

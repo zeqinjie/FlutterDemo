@@ -1,12 +1,12 @@
 
 import 'package:flutter/material.dart';
 
-class RowAndColumnWidget extends StatefulWidget{
+class MyRowAndColumnWidget extends StatefulWidget{
   @override
-  State<StatefulWidget> createState() => RowAndColumnWidgetState();
+  State<StatefulWidget> createState() => MyRowAndColumnWidgetState();
 }
 
-class RowAndColumnWidgetState extends State{
+class MyRowAndColumnWidgetState extends State{
   /* Flutter中通过Row和Column来实现线性布局,都继承自Flex
   *  MainAxisAlignment：主轴方向上的对齐方式，会对child的位置起作用
      对于Row 主轴是水平方向，交叉轴是垂直方向，对于Column则相反

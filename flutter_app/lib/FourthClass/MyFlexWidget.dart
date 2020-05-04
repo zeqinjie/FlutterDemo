@@ -4,7 +4,9 @@ class MyFlexWidget extends StatefulWidget{
   @override
   State<StatefulWidget> createState() => MyFlexWidgetState();
 }
-
+/**
+ * Expanded 撑开flex布局子组件空间
+ */
 class MyFlexWidgetState extends State{
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,5 @@ class MyFlexWidgetState extends State{
     );
   }
 
-  Widget getExpandedWidet(){
 
-  }
 }

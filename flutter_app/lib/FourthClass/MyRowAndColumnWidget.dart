@@ -37,12 +37,12 @@ class MyRowAndColumnWidgetState extends State{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return getMutileColumnWidget();
+    return getColumnWordWidget();
   }
 
   Widget getRowWidget(){
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+//      mainAxisAlignment: MainAxisAlignment.center,
 //      crossAxisAlignment: CrossAxisAlignment.start,
 //      verticalDirection: VerticalDirection.up,
 //      textDirection:TextDirection.rtl,
@@ -61,8 +61,8 @@ class MyRowAndColumnWidgetState extends State{
 
   Widget getColumnWidget() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
+//      mainAxisAlignment: MainAxisAlignment.start,
+//      crossAxisAlignment: CrossAxisAlignment.center,
 //      verticalDirection: VerticalDirection.up,
       children: <Widget>[
 //        Row(children: [

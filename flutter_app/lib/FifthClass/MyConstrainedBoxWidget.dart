@@ -10,7 +10,6 @@ class MyConstrainedBoxWidgetState extends State {
     decoration: BoxDecoration(color: Colors.red),
   );
 
-  @override
   /* 尺寸限制类容器,
   * ConstrainedBox 用于对子组件添加额外的约
   * SizedBox 用于给子元素指定固定的宽高
@@ -24,7 +23,7 @@ class MyConstrainedBoxWidgetState extends State {
   * 补充:
   * ConstrainedBox和SizedBox都是通过RenderConstrainedBox来渲染的
   * */
-
+  @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return getFittedBox();

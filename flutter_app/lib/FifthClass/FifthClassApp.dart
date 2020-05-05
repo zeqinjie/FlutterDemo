@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutterapp/FourthClass/MyAlignWidget.dart';
 
 import 'MyConstrainedBoxWidget.dart';
+import 'MyContainerWidget.dart';
+import 'MyDecoratedBoxWidget.dart';
 import 'MyPaddingWidget.dart';
+import 'MyScaffoldTabBarWidget.dart';
+import 'MyTransformWidget.dart';
 //课程文章  https://book.flutterchina.club/chapter5/
 class FifthClassApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -30,12 +34,13 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    return MyScaffoldWidget();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Container(
-        child:MyConstrainedBoxWidget(),
+        child:MyContainerWidget(),
       ),
     );
   }

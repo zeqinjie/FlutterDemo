@@ -2,6 +2,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/FourthClass/MyAlignWidget.dart';
 
+import 'MyClipWidget.dart';
 import 'MyConstrainedBoxWidget.dart';
 import 'MyContainerWidget.dart';
 import 'MyDecoratedBoxWidget.dart';
@@ -34,13 +35,13 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return MyScaffoldWidget();
+//    return MyScaffoldWidget();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Container(
-        child:MyContainerWidget(),
+        child:MyClipWidget(),
       ),
     );
   }

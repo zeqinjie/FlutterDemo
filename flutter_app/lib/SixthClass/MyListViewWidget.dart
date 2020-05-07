@@ -122,14 +122,25 @@ class MyListViewWidgetState extends State<MyListViewWidget> {
   // 无限加载
   Widget getInfiniteListView(BuildContext context){
     Widget divider1=Divider(color: Colors.blue,);
-    return ListView.separated(
-        itemBuilder: (context,index){
-          return getItemBuilder(context, index);
-        },
-        separatorBuilder: (context,index){
-          return divider1;
-        },
-        itemCount: words.length,
+    //我们需要给ListView指定边界，我们通过SizedBox指定一个列表高度看看是否生效：
+
+    return Column(
+      children: [
+        //添加头部
+        ListTile(title:Text("商品列表")),
+        //需要固定ListView 高度，否则报错，使用Expanded 尽可能的拉伸view
+        Expanded(
+          child: ListView.separated(
+            itemBuilder: (context,index){
+              return getItemBuilder(context, index);
+            },
+            separatorBuilder: (context,index){
+              return divider1;
+            },
+            itemCount: words.length,
+          ),
+        )
+      ],
     );
   }
 

@@ -1,5 +1,6 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterapp/Tool/MyToolWidget.dart';
 
 class MyListViewWidget extends StatefulWidget {
   @override
@@ -8,6 +9,9 @@ class MyListViewWidget extends StatefulWidget {
 }
 
 class MyListViewWidgetState extends State<MyListViewWidget> {
+
+  static const loadingTag = "##loading##"; //表尾标记
+  var words = <String>[loadingTag];
 
   /*
   *ListView({
@@ -82,6 +86,8 @@ class MyListViewWidgetState extends State<MyListViewWidget> {
     return ListView.builder(
         itemCount: 100,  //个数
         itemExtent: 50.0, //强制高度为50.0
+        addAutomaticKeepAlives: true,
+        addRepaintBoundaries: true,
         itemBuilder: (BuildContext context, int index){
           return ListTile(
             leading: Icon(Icons.dashboard),
@@ -116,14 +122,10 @@ class MyListViewWidgetState extends State<MyListViewWidget> {
     );
   }
 
-  static const loadingTag = "##loading##"; //表尾标记
-  var words = <String>[loadingTag];
-
   // 无限加载
   Widget getInfiniteListView(BuildContext context){
     Widget divider1=Divider(color: Colors.blue,);
     //我们需要给ListView指定边界，我们通过SizedBox指定一个列表高度看看是否生效：
-
     return Column(
       children: [
         //添加头部
@@ -153,22 +155,10 @@ class MyListViewWidgetState extends State<MyListViewWidget> {
         //获取数据
         retrieveData();
         //加载时显示loading
-        return Container(
-          padding: const EdgeInsets.all(16.0),
-          alignment: Alignment.center,
-          child: SizedBox(
-              width: 24.0,
-              height: 24.0,
-              child: CircularProgressIndicator(strokeWidth: 2.0)
-          ),
-        );
+        return MyToolWidget.getLoadingWidget(0);
       } else {
         //已经加载了100条数据，不再获取数据。
-        return Container(
-            alignment: Alignment.center,
-            padding: EdgeInsets.all(16.0),
-            child: Text("没有更多了", style: TextStyle(color: Colors.grey),)
-        );
+        return MyToolWidget.getLoadingWidget(1);
       }
     }
     return ListTile(

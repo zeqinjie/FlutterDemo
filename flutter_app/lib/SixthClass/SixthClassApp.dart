@@ -1,7 +1,9 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
+import 'MyCustomScrollViewWidget.dart';
 import 'MyGridViewWidget.dart';
 import 'MyListViewWidget.dart';
+import 'MyScrollController.dart';
 import 'MySingleChildScrollViewWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter6/
@@ -34,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: MyGridViewWidget(),
+      body: MyScrollControllerWidget(),
     );
   }
 

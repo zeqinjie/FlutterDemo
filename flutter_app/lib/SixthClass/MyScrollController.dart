@@ -116,6 +116,15 @@ class MyScrollControllerWidgetState extends State<MyScrollControllerWidget>{
   * */
 
 
+  /*
+  * 在接收到滚动事件时，参数类型为ScrollNotification，它包括一个metrics属性，它的类型是ScrollMetrics，该属性包含当前ViewPort及滚动位置等信息：
+  * pixels：当前滚动位置。
+  * maxScrollExtent：最大可滚动长度。
+  * extentBefore：滑出ViewPort顶部的长度；此示例中相当于顶部滑出屏幕上方的列表长度。
+  * extentInside：ViewPort内部长度；此示例中屏幕显示的列表部分的长度。
+  * extentAfter：列表中未滑入ViewPort部分的长度；此示例中列表底部未显示到屏幕范围部分的长度。
+  * atEdge：是否滑到了可滚动组件的边界（此示例中相当于列表顶或底部）。
+  * */
   String progress = "0%";
 
   Widget getNotificationListenerWidget(){

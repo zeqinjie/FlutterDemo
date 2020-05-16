@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'ShareDataWidget.dart';
+import 'MyShareDataWidget.dart';
+import 'MyWillPopScopeWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter7/
 class SevenClassApp extends StatelessWidget {
@@ -12,6 +13,9 @@ class SevenClassApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      routes: {
+        "MyWillPopScopeWidget":(context) => MyWillPopScopeWidget(),
+      },
       home: MyHomePage(title: 'Flutter Demo Home Page'),// 注意设置MyHomePage 路由注册首页方式需注释掉，否则会重复注册报错
     );
   }
@@ -33,8 +37,11 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child:InheritedWidgetTestRoute(),
+        child:MyShareDataWidget(),
       ),
+      floatingActionButton: FloatingActionButton(child: Text("push"),onPressed: (){
+        Navigator.pushNamed(context, "MyWillPopScopeWidget");
+      },),
     );
   }
 

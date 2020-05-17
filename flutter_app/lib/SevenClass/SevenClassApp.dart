@@ -1,5 +1,6 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
+import 'FutureBuilderWidget.dart';
 import 'MyProviderWidget.dart';
 import 'MyShareDataInheritedWidget.dart';
 import 'MyThemeWidget.dart';
@@ -34,13 +35,13 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return MyThemeWidget();
+//    return MyThemeWidget();
 
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: MyProviderWidget(),
+      body: FutureBuilderWidget(),
       floatingActionButton: FloatingActionButton(child: Text("push"),onPressed: (){
         Navigator.pushNamed(context, "MyWillPopScopeWidget");
       },),

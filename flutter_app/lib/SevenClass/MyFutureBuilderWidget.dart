@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class FutureBuilderWidget extends StatefulWidget {
-  FutureBuilderWidget({Key key}) : super(key: key);
+class MyFutureBuilderWidget extends StatefulWidget {
+  MyFutureBuilderWidget({Key key}) : super(key: key);
 
   @override
-  _FutureBuilderWidgetState createState() {
-    return _FutureBuilderWidgetState();
+  _MyFutureBuilderWidgetState createState() {
+    return _MyFutureBuilderWidgetState();
   }
 }
 
-class _FutureBuilderWidgetState extends State<FutureBuilderWidget> {
+class _MyFutureBuilderWidgetState extends State<MyFutureBuilderWidget> {
 
   /*
   * FutureBuilder({

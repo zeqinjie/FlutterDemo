@@ -1,5 +1,6 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
+import 'MyProviderWidget.dart';
 import 'MyShareDataWidget.dart';
 import 'MyWillPopScopeWidget.dart';
 
@@ -36,9 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child:MyShareDataWidget(),
-      ),
+      body: MyProviderWidget(),
       floatingActionButton: FloatingActionButton(child: Text("push"),onPressed: (){
         Navigator.pushNamed(context, "MyWillPopScopeWidget");
       },),

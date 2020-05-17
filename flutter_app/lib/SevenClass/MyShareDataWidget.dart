@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class MyShareDataInheritedWidget extends InheritedWidget {
+  /*
+  * InheritedWidget它能有效地将数据在当前Widget树中向它的子widget树传递。
+    它的子Widget树可以通过 BuildContext.inheritedFromWidgetOfExactType()方法获得最近的指定类型的Inherited widget，进而获取它的共享数据
+  * */
 
   final int data; //需要在子树中共享的数据，保存点击次数
 
@@ -8,6 +12,12 @@ class MyShareDataInheritedWidget extends InheritedWidget {
 //    @required this.data,Widget child,Key key
 //  }):super(key: key, child: child);
 
+  /**
+   * 获取最近的给定类型的Widget，该widget必须是InheritedWidget的子类，
+   * 并向该widget注册传入的context，当该widget改变时，
+   * 这个context会重新构建以便从该widget获得新的值。
+   * 这就是child向InheritedWidget注册的方法。
+   */
   MyShareDataInheritedWidget({
     @required this.data,Widget child
   }):super(child: child);
@@ -23,8 +33,10 @@ class MyShareDataInheritedWidget extends InheritedWidget {
   //该回调决定当data发生变化时，是否通知子树中依赖data的Widget
   @override
   bool updateShouldNotify(MyShareDataInheritedWidget old) {
-    //如果返回true，则子树中依赖(build函数中有调用)本widget
-    //的子widget的`state.didChangeDependencies`会被调用
+    /*
+    如果返回true，则子树中依赖(build函数中有调用)本widget
+    的子widget的`state.didChangeDependencies`会被调用
+     */
     return old.data != data;
   }
 }

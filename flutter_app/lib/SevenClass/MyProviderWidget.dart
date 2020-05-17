@@ -16,71 +16,21 @@ class MyProviderInheritedWidget<T> extends InheritedWidget {
 }
 
 class MyChangeNotifierProviderWidget<T extends ChangeNotifier>  extends StatefulWidget {
-  MyChangeNotifierProviderWidget({
-    Key key,
-    this.child,
-    this.data
-  }) : super(key: key);
+  MyChangeNotifierProviderWidget({Key key,this.child,this.data}) : super(key: key);
 
   final Widget child;
   final T data;
 
   @override
-  _MyChangeNotifierProviderWidgetState<T> createState() {
-    return _MyChangeNotifierProviderWidgetState<T>();
+  _MyChangeNotifierProviderWidgetState createState() {
+    return _MyChangeNotifierProviderWidgetState();
   }
 
-  //定义一个便捷方法，方便子树中的widget获取共享数据
   static T of<T>(BuildContext context){
-//    final type = _typeOf<InheritedProvider<T>>();
     final provider =  context.dependOnInheritedWidgetOfExactType<MyProviderInheritedWidget<T>>();
     return provider.data;
   }
 
-}
-
-class _MyChangeNotifierProviderWidgetState<T extends ChangeNotifier> extends State<MyChangeNotifierProviderWidget<T>> {
-
-  void update() {
-    //如果数据发生变化（model类调用了notifyListeners），重新构建InheritedProvider
-    setState(() => {});
-  }
-
-  //只要在父widget中调用setState，子widget的didUpdateWidget就一定会被调用，不管父widget传递给子widget构造方法的参数有没有改变。
-  //initState -> build  , didUpdateWidget -> build
-  @override
-  void didUpdateWidget(MyChangeNotifierProviderWidget<T> oldWidget) {
-    // TODO: implement didUpdateWidget
-    //当Provider更新时，如果新旧数据不"=="，则解绑旧数据监听，同时添加新数据监听
-    if (widget.data != oldWidget.data) {
-      oldWidget.data.removeListener(update);
-      widget.data.addListener(update);
-    }
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
-  void initState() {
-    // 给model添加监听器
-    widget.data.addListener(update);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    // 移除model的监听器
-    widget.data.removeListener(update);
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return MyProviderInheritedWidget(
-      data: widget.data,
-      child: widget.child,
-    );
-  }
 }
 
 class Item {
@@ -162,5 +112,47 @@ class _MyProviderWidgetState extends State<MyProviderWidget> {
 
 
 
+class _MyChangeNotifierProviderWidgetState<T extends ChangeNotifier> extends State<MyChangeNotifierProviderWidget<T>> {
 
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MyProviderInheritedWidget(
+      data: widget.data,
+      child: widget.child,
+    );
+  }
+
+  @override
+  void initState() {
+    // 给model添加监听器
+    widget.data.addListener(update);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // 移除model的监听器
+    widget.data.removeListener(update);
+    super.dispose();
+  }
+
+  //只要在父widget中调用setState，子widget的didUpdateWidget就一定会被调用，不管父widget传递给子widget构造方法的参数有没有改变。
+  //initState -> build  , didUpdateWidget -> build
+  @override
+  void didUpdateWidget(MyChangeNotifierProviderWidget<T> oldWidget) {
+    // TODO: implement didUpdateWidget
+    //当Provider更新时，如果新旧数据不"=="，则解绑旧数据监听，同时添加新数据监听
+    if (widget.data != oldWidget.data) {
+      oldWidget.data.removeListener(update);
+      widget.data.addListener(update);
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  void update() {
+    //如果数据发生变化（model类调用了notifyListeners），重新构建InheritedProvider
+    setState(() => {});
+  }
+}
 

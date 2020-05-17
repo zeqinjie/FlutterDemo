@@ -25,7 +25,7 @@ class MyShareDataInheritedWidget extends InheritedWidget {
 
   //定义一个便捷方法，方便子树中的widget获取共享数据
   static MyShareDataInheritedWidget of(BuildContext context) {
-//    return context.dependOnInheritedWidgetOfExactType<ShareDataWidget>();
+//    return context.dependOnInheritedWidgetOfExactType<MyShareDataInheritedWidget>();
   //不希望在ShareDataWidget发生变化时调用__TestWidgetState的didChangeDependencies()方法应该怎么办？调整为如下返回
     return context.getElementForInheritedWidgetOfExactType<MyShareDataInheritedWidget>().widget;
   }

@@ -1,7 +1,8 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'MyProviderWidget.dart';
-import 'MyShareDataWidget.dart';
+import 'MyShareDataInheritedWidget.dart';
+import 'MyThemeWidget.dart';
 import 'MyWillPopScopeWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter7/
@@ -33,6 +34,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    return MyThemeWidget();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),

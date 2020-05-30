@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
 
+import 'MyGestureDetectorWidget.dart';
 import 'MyPointerEventWidget.dart';
 //课程文章  https://book.flutterchina.club/chapter8/
 class EighthClassApp extends StatelessWidget {
@@ -32,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(child: MyPointerEventWidget(),),
+      body: Center(child: MyGestureDetectorWidget(),),
       floatingActionButton: FloatingActionButton(child: Text("push"),onPressed: (){
 
       },),

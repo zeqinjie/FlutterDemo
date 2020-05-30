@@ -19,6 +19,10 @@ class MyToolWidget extends StatelessWidget{
         Random.secure().nextInt(255));
   }
 
+  static double getDoubleRandom(){
+    return Random().nextDouble();
+  }
+
   /*
   * 0 是加载中 1 是加载完毕
   * */

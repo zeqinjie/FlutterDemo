@@ -41,7 +41,7 @@ class _MyPointerEventWidgetState extends State<MyPointerEventWidget> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return getListenerWidget();
+    return getIgnorePointerWidget();
   }
 
   /*
@@ -86,14 +86,71 @@ class _MyPointerEventWidgetState extends State<MyPointerEventWidget> {
     );
   }
 
-  Widget getListenerWidget2() {
+  /*
+  * behavior:HitTestBehavior
+  * deferToChild :子组件会一个接一个的进行命中测试，如果子组件中有测试通过的，则当前组件通过，这就意味着，如果指针事件作用于子组件上时，其父级组件也肯定可以收到该事件
+  * opaque:在命中测试时，将当前组件当成不透明处理(即使本身是透明的)，最终的效果相当于当前Widget的整个区域都是点击区域,
+  * translucent:当点击组件透明区域时，可以对自身边界内及底部可视区域都进行命中测试，这意味着点击顶部组件透明区域时，顶部组件和底部组件都可以接收到事件
+  * */
+  Widget getListenerBehaviorOpaqueWidget() {
     return Listener(
         child: ConstrainedBox(
           constraints: BoxConstraints.tight(Size(300.0, 150.0)),
-          child: Center(child: Text("Box A",textAlign: TextAlign.center,)),
+          child: Center(child: Text(
+            _event?.toString()??"hellow",
+            style: TextStyle(color: Colors.yellow),
+            textAlign: TextAlign.center,
+          )),
         ),
-        behavior: HitTestBehavior.opaque,
-        onPointerDown: (event) => print("down A")
+//        behavior: HitTestBehavior.opaque,
+        onPointerDown: (event) {
+          _event=event;
+          print('手指按下回调：${event.pressure}');
+        },
     );
   }
+
+  Widget getListenerBehaviorTranslucentWidget(){
+    return Stack(
+      children: <Widget>[
+        Listener(
+          child: ConstrainedBox(
+            constraints: BoxConstraints.tight(Size(300.0, 200.0)),
+            child: DecoratedBox(
+                decoration: BoxDecoration(color: Colors.blue)),
+          ),
+          onPointerDown: (event) => print("down0"),
+        ),
+        Listener(
+          child: ConstrainedBox(
+            constraints: BoxConstraints.tight(Size(200.0, 100.0)),
+            child: Center(child: Text("左上角200*100范围内非文本区域点击")),
+          ),
+          onPointerDown: (event) => print("down1"),
+          behavior: HitTestBehavior.translucent, //放开此行注释后可以"点透"
+        )
+      ],
+    );
+  }
+
+  /*
+  * 假如我们不想让某个子树响应PointerEvent的话，我们可以使用IgnorePointer和AbsorbPointer，
+  * 这两个组件都能阻止子树接收指针事件，不同之处在于AbsorbPointer本身会参与命中测试，而IgnorePointer本身不会参与
+  * */
+  Widget getIgnorePointerWidget() {
+    return Listener(
+      child: AbsorbPointer( //AbsorbPointer 只响应up, 如果换成IgnorePointer 都不响应
+        child: Listener(
+          child: Container(
+            color: Colors.red,
+            width: 200.0,
+            height: 100.0,
+          ),
+          onPointerDown: (event)=>print("in"),
+        ),
+      ),
+      onPointerDown: (event)=>print("up"),
+    );
+  }
+
 }

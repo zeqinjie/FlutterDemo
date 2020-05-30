@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class MyProviderInheritedWidget<T> extends InheritedWidget {
   MyProviderInheritedWidget({@required this.data, Widget child}) : super(child: child);
 
+
   //共享状态使用泛型
   final T data;
 

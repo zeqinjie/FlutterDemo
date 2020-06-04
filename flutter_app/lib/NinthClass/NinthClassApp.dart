@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/FourthClass/MyAlignWidget.dart';
+import 'package:flutterapp/NinthClass/MyAnimationWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter9/
 class NinthClassApp extends StatelessWidget {
@@ -33,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
-        child:MyAlignWidget(),
+        child:MyAnimationWidget(),
       ),
     );
   }

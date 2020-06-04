@@ -3,9 +3,10 @@ import 'package:flutterapp/EighthClass/EighthClassApp.dart';
 import 'package:flutterapp/ThirdClass/ThirdClassApp.dart';
 import 'FifthClass/FifthClassApp.dart';
 import 'FourthClass/FourthClassApp.dart';
+import 'NinthClass/NinthClassApp.dart';
 import 'SevenClass/SevenClassApp.dart';
 import 'SixthClass/SixthClassApp.dart';
-void main() => runApp(EighthClassApp());
+void main() => runApp(NinthClassApp());
 
 
 

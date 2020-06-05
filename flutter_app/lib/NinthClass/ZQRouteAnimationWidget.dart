@@ -33,14 +33,14 @@ class _ZQRouteAnimationWidgetState extends State<ZQRouteAnimationWidget> {
     return Center(
       child: Container(
         child: OutlineButton.icon(onPressed: (){
-          pageRouteBuilder();
+          pageZQFadeRoute();
         }, icon: Icon(Icons.map), label: Text("click...")),
       ),
     );
   }
 
   //方式一 简单的作法是可以直接使用CupertinoPageRoute
-  void cupertinoPageRoute() {
+  void pageCupertinoPageRoute() {
     Navigator.push(context, CupertinoPageRoute(
       builder: (context)=>MyRoutePage(text: "hello word",),
     ));
@@ -71,7 +71,11 @@ class _ZQRouteAnimationWidgetState extends State<ZQRouteAnimationWidget> {
   /*
   * 方式三 自定义一个路由类FadeRoute
   * */
-
+  void pageZQFadeRoute() {
+    Navigator.push(context, ZQFadeRoute(builder: (context) {
+      return MyRoutePage(text:"text");
+    }));
+  }
 }
 
 //路由传值
@@ -104,27 +108,58 @@ class MyRoutePage extends StatelessWidget{
   }
 }
 
+//直接继承PageRoute类来实现自定义路由
 class ZQFadeRoute extends PageRoute {
+
+  ZQFadeRoute({@required this.builder,
+    this.transitionDuration = const Duration(milliseconds: 300),
+    this.opaque = true,
+    this.barrierDismissible = false,
+    this.barrierColor,
+    this.barrierLabel,
+    this.maintainState = true,
+  });
+
+  final WidgetBuilder builder;
   @override
-  // TODO: implement barrierColor
-  Color get barrierColor => throw UnimplementedError();
+  final Duration transitionDuration;
 
   @override
-  // TODO: implement barrierLabel
-  String get barrierLabel => throw UnimplementedError();
+  final bool opaque;
+
+  @override
+  final bool barrierDismissible;
+
+  @override
+  final Color barrierColor;
+
+  @override
+  final String barrierLabel;
+
+  @override
+  final bool maintainState;
 
   @override
   Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
     // TODO: implement buildPage
-    throw UnimplementedError();
+    return builder(context);
   }
 
   @override
-  // TODO: implement maintainState
-  bool get maintainState => throw UnimplementedError();
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
+    //假如我们只想在打开新路由时应用动画，而在返回时不使用动画，那么我们在构建过渡动画时就必须判断当前路由isActive属性是否为true
+    //当前路由被激活，是打开新路由
+    if(isActive) {
+      return FadeTransition(
+        opacity: animation,
+        child: builder(context),
+      );
+    }else{
+      //是返回，则不应用过渡动画
+      return Padding(padding: EdgeInsets.zero);
+    }
+  }
 
-  @override
-  // TODO: implement transitionDuration
-  Duration get transitionDuration => throw UnimplementedError();
-  
+
 }

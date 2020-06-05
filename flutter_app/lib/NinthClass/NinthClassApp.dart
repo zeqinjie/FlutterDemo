@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutterapp/FourthClass/ZQAlignWidget.dart';
 import 'package:flutterapp/NinthClass/ZQAnimationWidget.dart';
 
+import 'ZQAnimatedSwitcherWidget.dart';
 import 'ZQHeroAnimationWidget.dart';
 import 'ZQRouteAnimationWidget.dart';
+import 'ZQStaggerAnimationWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter9/
 class NinthClassApp extends StatelessWidget {
@@ -37,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
-        child:ZQHeroAnimationWidget(),
+        child:ZQAnimatedSwitcherWidget(),
       ),
     );
   }

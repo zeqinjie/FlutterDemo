@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/Tool/MyToolWidget.dart';
+import 'package:flutterapp/Tool/ZQToolWidget.dart';
 
 class ZQGestureDetectorWidget extends StatefulWidget {
   ZQGestureDetectorWidget({Key key}) : super(key: key);
@@ -133,7 +133,7 @@ class _ZQGestureDetectorWidgetState extends State<ZQGestureDetectorWidget> with 
           setState(() {
             //缩放倍数在0.8到10倍之间
 //            _width=200*details.scale.clamp(.8, 10.0);
-          _width = 200 * MyToolWidget.getDoubleRandom();
+          _width = 200 * ZQToolWidget.getDoubleRandom();
           });
         },
       ),

@@ -4,13 +4,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class MyToolWidget extends StatelessWidget{
+class ZQToolWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Text("hello");
   }
 
+  /*获取随机颜色*/
   static Color getRandomColor() {
     return Color.fromARGB(
         255,
@@ -19,6 +20,7 @@ class MyToolWidget extends StatelessWidget{
         Random.secure().nextInt(255));
   }
 
+  /*获取随机数*/
   static double getDoubleRandom(){
     return Random().nextDouble();
   }

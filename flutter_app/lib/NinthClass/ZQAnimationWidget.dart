@@ -54,6 +54,7 @@ class _ZQAnimationWidgetState extends State<ZQAnimationWidget> with TickerProvid
     return getMyGrowTransitionWidget();
   }
 
+  //初始化动画
   void initAnimation() {
     //需要继承TickerProvider，如果有多个AnimationController，则应该使用TickerProviderStateMixin。
     controller = AnimationController(duration: const Duration(seconds: 3), vsync: this);
@@ -124,7 +125,7 @@ class _ZQAnimationWidgetState extends State<ZQAnimationWidget> with TickerProvid
     });
   }
 
-  // 方式二 封装 分离组件
+  // 方式二 封装分离组件，复用动画
   Widget getMyGrowTransitionWidget(){
     return ZQGrowTransition(
       child: Image.asset("assets/icons/taofang.png"),
@@ -148,7 +149,7 @@ class ZQAnimatedImage extends AnimatedWidget {
   }
 }
 
-// 方式二 封装过度动画
+// 方式二 封装分离组件，复用动画
 class ZQGrowTransition extends StatelessWidget {
   ZQGrowTransition({this.child, this.animation});
 
@@ -156,11 +157,11 @@ class ZQGrowTransition extends StatelessWidget {
   final Animation<double> animation;
 
   Widget build(BuildContext context) {
-    return new Center(
-      child: new AnimatedBuilder(
+    return  Center(
+      child:  AnimatedBuilder(
           animation: animation,
           builder: (BuildContext context, Widget child) {
-            return new Container(
+            return  Container(
                 height: animation.value,
                 width: animation.value,
                 child: child

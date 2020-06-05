@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutterapp/Tool/MyToolWidget.dart';
+import 'package:flutterapp/Tool/ZQToolWidget.dart';
 
 class ZQGridViewWidget extends StatefulWidget {
   @override
@@ -99,7 +99,7 @@ class ZQGridViewWidgetState extends State<ZQGridViewWidget> {
             childAspectRatio: 1.0 //宽高比为1时，子widget
         ),
         children:icons.map((e) {
-          return Container(child: Icon(e),color: MyToolWidget.getRandomColor(),);
+          return Container(child: Icon(e),color: ZQToolWidget.getRandomColor(),);
         }).toList(),
     );
   }
@@ -113,7 +113,7 @@ class ZQGridViewWidgetState extends State<ZQGridViewWidget> {
       crossAxisCount: 3,
       childAspectRatio: 1.0/2.0, //宽：高 如果scrollDirection 为水平方向则是高：宽
         children:icons.map((e) {
-          return Container(child: Icon(e),color: MyToolWidget.getRandomColor(),);
+          return Container(child: Icon(e),color: ZQToolWidget.getRandomColor(),);
         }).toList(),
     );
   }
@@ -139,7 +139,7 @@ class ZQGridViewWidgetState extends State<ZQGridViewWidget> {
           childAspectRatio: 2.0 //宽高比为2
       ),
       children: icons.map((e) {
-        return Container(child: Icon(e),color: MyToolWidget.getRandomColor(),);
+        return Container(child: Icon(e),color: ZQToolWidget.getRandomColor(),);
       }).toList(),
     );
   }
@@ -161,13 +161,13 @@ class ZQGridViewWidgetState extends State<ZQGridViewWidget> {
             //总数小于100时继续获取数据
             if (iconArr.length < 100) {
               retrieveData();
-              return MyToolWidget.getLoadingWidget(0);
+              return ZQToolWidget.getLoadingWidget(0);
             }else{
               //已经加载了100条数据，不再获取数据。
-              return MyToolWidget.getLoadingWidget(1);
+              return ZQToolWidget.getLoadingWidget(1);
             }
           }
-          return Container(child: Icon(iconArr[index]),color: MyToolWidget.getRandomColor());
+          return Container(child: Icon(iconArr[index]),color: ZQToolWidget.getRandomColor());
         },
     );
   }

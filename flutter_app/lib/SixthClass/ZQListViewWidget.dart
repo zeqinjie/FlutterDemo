@@ -1,6 +1,6 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/Tool/MyToolWidget.dart';
+import 'package:flutterapp/Tool/ZQToolWidget.dart';
 
 class ZQListViewWidget extends StatefulWidget {
   @override
@@ -155,10 +155,10 @@ class ZQListViewWidgetState extends State<ZQListViewWidget> {
         //获取数据
         retrieveData();
         //加载时显示loading
-        return MyToolWidget.getLoadingWidget(0);
+        return ZQToolWidget.getLoadingWidget(0);
       } else {
         //已经加载了100条数据，不再获取数据。
-        return MyToolWidget.getLoadingWidget(1);
+        return ZQToolWidget.getLoadingWidget(1);
       }
     }
     return ListTile(

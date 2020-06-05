@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterapp/FourthClass/ZQAlignWidget.dart';
 import 'package:flutterapp/NinthClass/ZQAnimationWidget.dart';
 
+import 'ZQHeroAnimationWidget.dart';
 import 'ZQRouteAnimationWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter9/
@@ -36,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
-        child:ZQRouteAnimationWidget(),
+        child:ZQHeroAnimationWidget(),
       ),
     );
   }

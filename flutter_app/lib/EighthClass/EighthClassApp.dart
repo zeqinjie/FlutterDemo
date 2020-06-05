@@ -1,9 +1,9 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
 
-import 'MyGestureDetectorWidget.dart';
-import 'MyNotificationWidget.dart';
-import 'MyPointerEventWidget.dart';
+import 'ZQGestureDetectorWidget.dart';
+import 'ZQNotificationWidget.dart';
+import 'ZQPointerEventWidget.dart';
 //课程文章  https://book.flutterchina.club/chapter8/
 class EighthClassApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(child: MyNotificationWidget(),),
+      body: Center(child: ZQNotificationWidget(),),
       floatingActionButton: FloatingActionButton(child: Text("push"),onPressed: (){
 
       },),

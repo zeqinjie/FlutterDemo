@@ -1,14 +1,14 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/FourthClass/MyAlignWidget.dart';
+import 'package:flutterapp/FourthClass/ZQAlignWidget.dart';
 
-import 'MyClipWidget.dart';
-import 'MyConstrainedBoxWidget.dart';
-import 'MyContainerWidget.dart';
-import 'MyDecoratedBoxWidget.dart';
-import 'MyPaddingWidget.dart';
-import 'MyScaffoldTabBarWidget.dart';
-import 'MyTransformWidget.dart';
+import 'ZQClipWidget.dart';
+import 'ZQConstrainedBoxWidget.dart';
+import 'ZQContainerWidget.dart';
+import 'ZQDecoratedBoxWidget.dart';
+import 'ZQPaddingWidget.dart';
+import 'ZQScaffoldTabBarWidget.dart';
+import 'ZQTransformWidget.dart';
 //课程文章  https://book.flutterchina.club/chapter5/
 class FifthClassApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
-        child:MyClipWidget(),
+        child:ZQClipWidget(),
       ),
     );
   }

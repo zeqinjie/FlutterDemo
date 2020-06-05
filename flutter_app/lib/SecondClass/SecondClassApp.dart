@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp/SecondClass/NewRoute.dart';
-import 'package:flutterapp/SecondClass/TipRoute.dart';
+import 'package:flutterapp/SecondClass/ZQNewRoute.dart';
+import 'package:flutterapp/SecondClass/ZQTipRoute.dart';
 
 //课程文章路由管理  https://book.flutterchina.club/chapter2/
 class SecondClassApp extends StatelessWidget {
@@ -23,19 +23,19 @@ class SecondClassApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),routes: {
                 "/":(context) => MyHomePage(title: 'Flutter Demo Home Page'), //注册首页路由
-                "new_route":(context) => NewRoute(),
+                "new_route":(context) => ZQNewRoute(),
 //                "tip_route":(context) => TipRoute(text: "I love china"),
                  //补充动态参数为文本text
                 "tip_route":(context) {
-                    return TipRoute(text: ModalRoute.of(context).settings.arguments);
+                    return ZQTipRoute(text: ModalRoute.of(context).settings.arguments);
                     },
                 },
       onGenerateRoute: (RouteSettings settings){
         WidgetBuilder builder;
         if (settings.name == 'new_route2') {
-          builder = (BuildContext context) => new NewRoute();
+          builder = (BuildContext context) => new ZQNewRoute();
         } else if (settings.name == 'tip_route2') {
-          builder = (BuildContext context) => new TipRoute(text: ModalRoute.of(context).settings.arguments);
+          builder = (BuildContext context) => new ZQTipRoute(text: ModalRoute.of(context).settings.arguments);
         }
         return new MaterialPageRoute(builder: builder, settings: settings);
       },

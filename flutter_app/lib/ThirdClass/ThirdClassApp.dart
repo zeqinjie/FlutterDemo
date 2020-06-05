@@ -1,18 +1,18 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
-import 'package:flutterapp/SecondClass/NewRoute.dart';
-import 'package:flutterapp/SecondClass/TipRoute.dart';
-import 'package:flutterapp/ThirdClass/MyTextWidget.dart';
+import 'package:flutterapp/SecondClass/ZQNewRoute.dart';
+import 'package:flutterapp/SecondClass/ZQTipRoute.dart';
+import 'package:flutterapp/ThirdClass/ZQTextWidget.dart';
 
-import 'CounterWidget.dart';
-import 'MyButtonWidget.dart';
-import 'MyCupertinoWidget.dart';
-import 'MyPirctureAndIconWidget.dart';
-import 'MyProgressIndicatorWidget.dart';
-import 'MySwitchAndCheckBoxWidget.dart';
-import 'MyTextFieldAndFormWidget.dart';
-import 'StateManagerWidget.dart';
+import 'ZQCounterWidget.dart';
+import 'ZQButtonWidget.dart';
+import 'ZQCupertinoWidget.dart';
+import 'ZQPirctureAndIconWidget.dart';
+import 'ZQProgressIndicatorWidget.dart';
+import 'ZQSwitchAndCheckBoxWidget.dart';
+import 'ZQTextFieldAndFormWidget.dart';
+import 'ZQStateManagerWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter3/
 class ThirdClassApp extends StatelessWidget {
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //            ),
 //          ],
 //        ),
-        child:MyProgressIndicatorWidget(),
+        child:ZQProgressIndicatorWidget(),
       ),
     );
   }

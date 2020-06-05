@@ -1,11 +1,11 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'MyDialogWidget.dart';
-import 'MyFutureBuilderWidget.dart';
-import 'MyProviderWidget.dart';
-import 'MyShareDataInheritedWidget.dart';
-import 'MyThemeWidget.dart';
-import 'MyWillPopScopeWidget.dart';
+import 'ZQDialogWidget.dart';
+import 'ZQFutureBuilderWidget.dart';
+import 'ZQProviderWidget.dart';
+import 'ZQShareDataInheritedWidget.dart';
+import 'ZQThemeWidget.dart';
+import 'ZQWillPopScopeWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter7/
 class SevenClassApp extends StatelessWidget {
@@ -18,7 +18,7 @@ class SevenClassApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        "MyWillPopScopeWidget":(context) => MyWillPopScopeWidget(),
+        "MyWillPopScopeWidget":(context) => ZQWillPopScopeWidget(),
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),// 注意设置MyHomePage 路由注册首页方式需注释掉，否则会重复注册报错
     );
@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(child: MyDialogWidget(),),
+      body: Center(child: ZQDialogWidget(),),
       floatingActionButton: FloatingActionButton(child: Text("push"),onPressed: (){
         Navigator.pushNamed(context, "MyWillPopScopeWidget");
       },),

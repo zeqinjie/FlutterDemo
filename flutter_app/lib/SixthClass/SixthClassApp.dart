@@ -1,10 +1,10 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'MyCustomScrollViewWidget.dart';
-import 'MyGridViewWidget.dart';
-import 'MyListViewWidget.dart';
-import 'MyScrollController.dart';
-import 'MySingleChildScrollViewWidget.dart';
+import 'ZQCustomScrollViewWidget.dart';
+import 'ZQGridViewWidget.dart';
+import 'ZQListViewWidget.dart';
+import 'ZQScrollController.dart';
+import 'ZQSingleChildScrollViewWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter6/
 class SixthClassApp extends StatelessWidget {
@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: MyScrollControllerWidget(),
+      body: ZQScrollControllerWidget(),
     );
   }
 

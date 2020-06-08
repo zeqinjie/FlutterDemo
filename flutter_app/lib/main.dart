@@ -6,7 +6,8 @@ import 'FourthClass/FourthClassApp.dart';
 import 'NinthClass/NinthClassApp.dart';
 import 'SevenClass/SevenClassApp.dart';
 import 'SixthClass/SixthClassApp.dart';
-void main() => runApp(NinthClassApp());
+import 'TenthClass/TenthClassApp.dart';
+void main() => runApp(TenthClassApp());
 
 
 

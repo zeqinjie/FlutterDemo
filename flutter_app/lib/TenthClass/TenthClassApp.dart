@@ -5,6 +5,7 @@ import 'package:flutterapp/NinthClass/ZQAnimationWidget.dart';
 import 'package:flutterapp/NinthClass/ZQTransitionAnimationWidget.dart';
 
 import 'ZQComposeWidget.dart';
+import 'ZQTurnBoxWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter10/
 class TenthClassApp extends StatelessWidget {
@@ -37,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
-        child:ZQComposeWidget(),
+        child:ZQTurnBoxWidget(),
       ),
     );
   }

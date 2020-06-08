@@ -75,8 +75,9 @@ class ZQGradientButton extends StatelessWidget {
   //点击回调
   final GestureTapCallback onPressed;
 
+  //final修饰变量或字段必须具有初始化程序。一旦分配了值，最终变量的值就无法更改
 
-  ZQGradientButton({this.colors,
+  const ZQGradientButton({this.colors,
                     this.width = 100,
                     this.height = 50,
                     this.borderRadius,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'ZQDialogWidget.dart';
 import 'ZQFutureBuilderWidget.dart';
 import 'ZQCustomProviderWidget.dart';
+import 'ZQProviderWidget.dart';
 import 'ZQShareDataInheritedWidget.dart';
 import 'ZQThemeWidget.dart';
 import 'ZQWillPopScopeWidget.dart';
@@ -36,8 +37,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-//    return MyThemeWidget();
-
+    return ZQProviderWidget();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),

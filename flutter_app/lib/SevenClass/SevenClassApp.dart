@@ -2,7 +2,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'ZQDialogWidget.dart';
 import 'ZQFutureBuilderWidget.dart';
-import 'ZQProviderWidget.dart';
+import 'ZQCustomProviderWidget.dart';
 import 'ZQShareDataInheritedWidget.dart';
 import 'ZQThemeWidget.dart';
 import 'ZQWillPopScopeWidget.dart';

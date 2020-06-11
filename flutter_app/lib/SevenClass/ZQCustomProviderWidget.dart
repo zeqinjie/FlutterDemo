@@ -118,12 +118,12 @@ class ZQCartModel extends ChangeNotifier {
   }
 }
 
-class ZQProviderWidget extends StatefulWidget {
+class ZQCustomProviderWidget extends StatefulWidget {
   @override
-  _ZQProviderWidgetState createState() => _ZQProviderWidgetState();
+  _ZQCustomProviderWidgetState createState() => _ZQCustomProviderWidgetState();
 }
 
-class _ZQProviderWidgetState extends State<ZQProviderWidget> {
+class _ZQCustomProviderWidgetState extends State<ZQCustomProviderWidget> {
   @override
   Widget build(BuildContext context) {
     return Center(

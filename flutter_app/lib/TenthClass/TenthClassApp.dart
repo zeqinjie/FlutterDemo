@@ -5,6 +5,8 @@ import 'package:flutterapp/NinthClass/ZQAnimationWidget.dart';
 import 'package:flutterapp/NinthClass/ZQTransitionAnimationWidget.dart';
 
 import 'ZQComposeWidget.dart';
+import 'ZQCustomPaintWidget.dart';
+import 'ZQGradientCircularProgressWidget.dart';
 import 'ZQTurnBoxWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter10/
@@ -37,9 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Container(
-        child:ZQTurnBoxWidget(),
-      ),
+      body: ZQGradientCircularProgressWidget(),
     );
   }
 }

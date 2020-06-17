@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
 
+import 'ZQDioHttpClientWidget.dart';
 import 'ZQFileOperationWidget.dart';
 import 'ZQHttpClientWidget.dart';
 
@@ -34,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ZQHttpClientWidget(),
+      body: ZQDioHttpClientWidget(),
       floatingActionButton: FloatingActionButton(child: Text("push"),onPressed: (){
 
       },),

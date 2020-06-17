@@ -2,6 +2,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 
 import 'ZQFileOperationWidget.dart';
+import 'ZQHttpClientWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter11/
 class ElevenClassApp extends StatelessWidget {
@@ -33,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ZQFileOperationWidget(),
+      body: ZQHttpClientWidget(),
       floatingActionButton: FloatingActionButton(child: Text("push"),onPressed: (){
 
       },),

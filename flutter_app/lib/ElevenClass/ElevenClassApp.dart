@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
 
+import 'ZQDioHttpClientResumeWidget.dart';
 import 'ZQDioHttpClientWidget.dart';
 import 'ZQFileOperationWidget.dart';
 import 'ZQHttpClientWidget.dart';
@@ -35,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ZQDioHttpClientWidget(),
+      body: ZQDioHttpClientResumeWidget(),
       floatingActionButton: FloatingActionButton(child: Text("push"),onPressed: (){
 
       },),

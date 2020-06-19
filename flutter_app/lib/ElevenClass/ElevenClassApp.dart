@@ -5,6 +5,7 @@ import 'ZQDioHttpClientResumeWidget.dart';
 import 'ZQDioHttpClientWidget.dart';
 import 'ZQFileOperationWidget.dart';
 import 'ZQHttpClientWidget.dart';
+import 'ZQWebSocketWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter11/
 class ElevenClassApp extends StatelessWidget {
@@ -36,10 +37,10 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ZQDioHttpClientResumeWidget(),
-      floatingActionButton: FloatingActionButton(child: Text("push"),onPressed: (){
-
-      },),
+      body: ZQWebSocketWidget(),
+//      floatingActionButton: FloatingActionButton(child: Text("push"),onPressed: (){
+//
+//      },),
     );
   }
 

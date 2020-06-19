@@ -27,6 +27,7 @@ dependencies:
   provider: 3.0.0+1      #provider状态管理依赖库
   path_provider: ^0.4.1 #文件操作依赖库
   dio: ^3.0.0 #网络请求库
+  web_socket_channel: ^1.1.0 #websocket
 dev_dependencies:
   flutter_test:
     sdk: flutter

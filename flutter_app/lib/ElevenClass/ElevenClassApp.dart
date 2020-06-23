@@ -5,6 +5,7 @@ import 'ZQDioHttpClientResumeWidget.dart';
 import 'ZQDioHttpClientWidget.dart';
 import 'ZQFileOperationWidget.dart';
 import 'ZQHttpClientWidget.dart';
+import 'ZQJsonDartWidget.dart';
 import 'ZQWebSocketWidget.dart';
 
 //课程文章  https://book.flutterchina.club/chapter11/
@@ -37,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ZQWebSocketWidget(),
+      body: ZQJsonDartWidget(),
 //      floatingActionButton: FloatingActionButton(child: Text("push"),onPressed: (){
 //
 //      },),

@@ -1,6 +1,8 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
+
+import 'dart:convert';
+
 
 class ZQJsonDartWidget extends StatefulWidget {
   ZQJsonDartWidget({Key key}) : super(key: key);
@@ -27,7 +29,7 @@ class _ZQJsonDartWidgetState extends State<ZQJsonDartWidget> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Text("hello");
+    return Text("hello...");
   }
 
   void covertTo(){
@@ -91,6 +93,84 @@ class _User {
         'email': email,
       };
 
-  //以json_serializable的方式创建model类
 
+}
+
+/// 使用json_serializable的方式创建model类
+
+
+
+/// 使用插件生成
+/*
+* {
+  "name": "John Smith",
+  "email": "john@example.com",
+  "mother":{
+    "name": "Alice",
+    "email":"alice@example.com"
+  },
+  "friends":[
+    {
+      "name": "Jack",
+      "email":"Jack@example.com"
+    },
+    {
+      "name": "Nancy",
+      "email":"Nancy@example.com"
+    }
+  ]
+}
+*
+* */
+
+class ZQPerson {
+    String email;
+    List<Friend> friends;
+    ZQPerson mother;
+    String name;
+
+    ZQPerson({this.email, this.friends, this.mother, this.name});
+
+    factory ZQPerson.fromJson(Map<String, dynamic> json) {
+        return ZQPerson(
+            email: json['email'],
+            friends: json['friends'] != null ? (json['friends'] as List).map((i) => Friend.fromJson(i)).toList() : null,
+            mother: json['mother'] != null ? ZQPerson.fromJson(json['mother']) : null,
+            name: json['name'],
+        );
+    }
+
+    Map<String, dynamic> toJson() {
+        final Map<String, dynamic> data = new Map<String, dynamic>();
+        data['email'] = this.email;
+        data['name'] = this.name;
+        if (this.friends != null) {
+            data['friends'] = this.friends.map((v) => v.toJson()).toList();
+        }
+        if (this.mother != null) {
+            data['mother'] = this.mother.toJson();
+        }
+        return data;
+    }
+}
+
+class Friend {
+    String email;
+    String name;
+
+    Friend({this.email, this.name});
+
+    factory Friend.fromJson(Map<String, dynamic> json) {
+        return Friend(
+            email: json['email'],
+            name: json['name'],
+        );
+    }
+
+    Map<String, dynamic> toJson() {
+        final Map<String, dynamic> data = new Map<String, dynamic>();
+        data['email'] = this.email;
+        data['name'] = this.name;
+        return data;
+    }
 }

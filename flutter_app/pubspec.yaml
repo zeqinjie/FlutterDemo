@@ -34,9 +34,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  #要包含json_serializable到我们的项目中，我们需要一个常规和两个开发依赖项。简而言之，开发依赖项是不包含在我们的应用程序源代码中的依赖项，它是开发过程中的一些辅助工具、脚本，和node中的开发依赖项相似
-  build_runner: ^1.0.0
-  json_serializable: ^2.0.0
+  #要包含json_serializable到我们的项目中，我们需要一个常规和两个开发依赖项。
+  #简而言之，开发依赖项是不包含在我们的应用程序源代码中的依赖项，它是开发过程中的一些辅助工具、脚本，和node中的开发依赖项相似
+#  json_model: #最新版本
+#  build_runner: ^1.0.0
+#  json_serializable: ^2.0.0  #它是一个自动化的源代码生成器
 
 
 # For information on the generic Dart part of this file, see the

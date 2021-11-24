@@ -7,7 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutterapp/SecondClass/SecondClassApp.dart';
+import 'package:flutterapp/LearnClass/SecondClass/SecondClassApp.dart';
 
 import 'package:flutterapp/main.dart';
 

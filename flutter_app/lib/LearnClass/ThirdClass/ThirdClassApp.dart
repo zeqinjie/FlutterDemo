@@ -1,10 +1,6 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
-import 'package:flutterapp/SecondClass/ZQNewRoute.dart';
-import 'package:flutterapp/SecondClass/ZQTipRoute.dart';
-import 'package:flutterapp/ThirdClass/ZQTextWidget.dart';
-
 import 'ZQCounterWidget.dart';
 import 'ZQButtonWidget.dart';
 import 'ZQCupertinoWidget.dart';

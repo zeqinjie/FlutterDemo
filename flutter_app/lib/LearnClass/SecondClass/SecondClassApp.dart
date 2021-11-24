@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp/SecondClass/ZQNewRoute.dart';
-import 'package:flutterapp/SecondClass/ZQTipRoute.dart';
+import 'package:flutterapp/LearnClass/SecondClass/ZQNewRoute.dart';
+import 'package:flutterapp/LearnClass/SecondClass/ZQTipRoute.dart';
 
 //课程文章路由管理  https://book.flutterchina.club/chapter2/
 class SecondClassApp extends StatelessWidget {
@@ -33,9 +33,9 @@ class SecondClassApp extends StatelessWidget {
       onGenerateRoute: (RouteSettings settings){
         WidgetBuilder builder;
         if (settings.name == 'new_route2') {
-          builder = (BuildContext context) => new ZQNewRoute();
+          builder = (BuildContext context) => ZQNewRoute();
         } else if (settings.name == 'tip_route2') {
-          builder = (BuildContext context) => new ZQTipRoute(text: ModalRoute.of(context).settings.arguments);
+          builder = (BuildContext context) => ZQTipRoute(text: ModalRoute.of(context).settings.arguments);
         }
         return new MaterialPageRoute(builder: builder, settings: settings);
       },
@@ -115,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.bodyText1,
             ),
             Text(
                 'china'

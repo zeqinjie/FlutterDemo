@@ -1,8 +1,5 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/FourthClass/ZQAlignWidget.dart';
-import 'package:flutterapp/NinthClass/ZQAnimationWidget.dart';
-import 'package:flutterapp/NinthClass/ZQTransitionAnimationWidget.dart';
 
 import 'ZQComposeWidget.dart';
 import 'ZQCustomPaintWidget.dart';

@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/Tool/ZQToolWidget.dart';
+import 'package:flutterapp/tool/zq_tool_widget.dart';
+
 
 class ZQGestureDetectorWidget extends StatefulWidget {
   ZQGestureDetectorWidget({Key key}) : super(key: key);

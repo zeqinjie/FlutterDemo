@@ -1,6 +1,6 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/Tool/ZQToolWidget.dart';
+import 'package:flutterapp/tool/zq_tool_widget.dart';
 
 class ZQListViewWidget extends StatefulWidget {
   @override

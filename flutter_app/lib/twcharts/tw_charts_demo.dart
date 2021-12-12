@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'dart:ui' as ui;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterapp/tool/tw_app_color.dart';
 
 // https://blog.csdn.net/weixin_45029658/article/details/120325909
 class TWChartsDemo extends StatelessWidget {
@@ -29,12 +30,15 @@ class _TWChartsAppState extends State<TWChartsApp> with TickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: RepaintBoundary(
-          child: CustomPaint(
-            painter: Line1(),
+      body: Center(
+        child: Container(
+          color: Colors.red,
+          height: 300,
+          width: 300,
+          child: RepaintBoundary(
+            child: CustomPaint(
+              painter: TWChartsTrendChart([4,5,6,7,8,9],[10.0,15.0,20.0,30.0,40.0,25.0],194,160),
+            ),
           ),
         ),
       ),
@@ -42,11 +46,62 @@ class _TWChartsAppState extends State<TWChartsApp> with TickerProviderStateMixin
   }
 }
 
-class Line1 extends CustomPainter{
-  Line1();
+class TWChartsTrendChart extends CustomPainter {
+
+  List<int> date = [4,5,6,7,8,9];
+  List<double> point = [10.0,15.0,20.0,30.0,40.0,25.0];
+  double width = 194;
+  double height = 160;
+
+  TWChartsTrendChart(this.date, this.point, this.width, this.height);
+
+
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()..color = Colors.lightBlueAccent;
+    // TODO: implement paint
+    // Paint paint = Paint()..color = TWAppColor.tw126AFF;
+    // paint
+    //   ..strokeWidth = 2;
+    // var startOffset = 100.0;
+
+
+    Paint paint = Paint()..color = TWAppColor.tw126AFF;
+
+    double dateSize = 20; // 月份文字大小
+    double textT = height - dateSize;
+    for(var i = 0; i < date.length; i++) {
+      var textPainter = TextPainter(
+        text: TextSpan(
+            text: "${date[i]}月",
+            style: TextStyle(color: Colors.black, fontSize: 12)),
+        // textWidthBasis: TextWidthBasis.longestLine
+      );
+      double textL = ((i + 1) * 10 + dateSize * i).toDouble();
+      canvas.drawRect(
+          Rect.fromLTRB(textL, textT, textPainter.width,
+              textPainter.height),
+          paint);
+      textPainter.layout();
+      textPainter.paint(canvas, Offset(100, 100));
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    // TODO: implement shouldRepaint
+    throw UnimplementedError();
+  }
+
+
+}
+
+class TWChartsPainter extends CustomPainter {
+
+  TWChartsPainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()..color = TWAppColor.tw126AFF;
     canvas.translate(size.width/2, size.height/2);
     paint
       ..strokeWidth = 2;
@@ -55,7 +110,7 @@ class Line1 extends CustomPainter{
     canvas.drawPoints(PointMode.lines, [Offset(0,-size.height/2),Offset(0,size.height/2,)], paint..color=Colors.black..strokeWidth=0.5);
 
     final dot=[
-      Offset(0, 0),
+      Offset(10, 10),
       Offset(40, -40),
       Offset(80, -20),
       Offset(120, -100),

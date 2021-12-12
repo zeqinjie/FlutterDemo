@@ -4,7 +4,7 @@ import 'package:flutterapp/TWCharts/tw_charts.dart';
 import 'package:flutterapp/TWCharts/tw_charts_demo.dart';
 import 'package:flutterapp/douban/tw_douban_app.dart';
 import 'package:flutterapp/webview/tw_webview_app.dart';
-void main() => runApp(TWDoubanApp());
+void main() => runApp(TWChartsDemo());
 
 
 
